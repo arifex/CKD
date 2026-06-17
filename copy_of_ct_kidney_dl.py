@@ -63,17 +63,6 @@ df = df.drop(columns=['image_id','diag','target'])
 
 df.head(3)
 
-import matplotlib.pyplot as plt
-
-# Data (percentages)
-data = [66.95, 10.97, 11.11, 5.13, 3.26, 1.42, 1.14]
-labels = ['BCC', 'VASC/DF', 'MEL', 'AKIEC', 'BKL', 'MEL (NV)', 'NV']
-
-# Create the pie chart
-plt.pie(data, labels=labels, autopct="%1.1f%%")
-plt.title('Distribution of skin cancer types')
-plt.show()
-
 # Assuming your DataFrame is called 'df'
 class_counts = df['Class'].value_counts().sort_values(ascending=False)  # Count class occurrences
 
