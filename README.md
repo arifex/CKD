@@ -7,7 +7,7 @@ Code for the paper:
 > *Advances in Artificial Intelligence and Machine Learning (AIAIML)*, 5(1), 2025.
 > [Paper (PDF)](https://www.oajaiml.com/uploads/archivepdf/416551196.pdf)
 
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/arifex/Kidney-CT-Ensemble-XAI/blob/main/Kidney_CT_Ensemble_XAI.ipynb)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/arifex/CKD/blob/main/ct-kidney-dl.ipynb)
 
 ## Overview
 
@@ -22,7 +22,7 @@ Four ImageNet-pretrained backbones process each slice in parallel:
 
 Their feature vectors are **concatenated** (feature-level fusion, not majority voting) and passed to a dense layer and a softmax classifier. **LIME** then shows which image regions drive each model's prediction.
 
-![Pipeline]pipeline.png)
+![Pipeline](pipeline.png)
 
 ## Dataset
 
@@ -39,7 +39,7 @@ The scans were collected from hospitals in Dhaka, Bangladesh. The dataset contai
 
 The dataset is not included in this repository because of its size. The notebook downloads it from Kaggle (see *How to run*).
 
-![Sample CT slices](figures/sample_ct_slices.jpg)
+![Sample CT slices](sample_ct_slices.jpg)
 
 ## Method
 
@@ -81,13 +81,13 @@ The ensemble metrics are computed from the confusion matrix in the paper. The mo
 
 | Confusion matrix | ROC curves |
 |---|---|
-| ![](figures/ensemble_confusion_matrix.png) | ![](figures/ensemble_roc.png) |
+| ![](ensemble_confusion_matrix.png) | ![](ensemble_roc.png) |
 
 ### LIME explanations
 
 Rows show EfficientNetV2, InceptionV2, MobileNetV2 and ViT-B/16; columns show Normal, Cyst, Stone and Tumor. Yellow outlines mark the superpixels that most influenced each prediction. EfficientNetV2 localised cysts and tumors best, while MobileNetV2 was strongest on normal and stone slices. This complementary behaviour motivated the ensemble.
 
-![LIME](figures/lime_explanations.jpg)
+![LIME](lime_explanations.jpg)
 
 ## Limitations and future work
 
@@ -106,18 +106,23 @@ Rows show EfficientNetV2, InceptionV2, MobileNetV2 and ViT-B/16; columns show No
 
 **Locally**
 ```bash
-git clone https://github.com/arifex/Kidney-CT-Ensemble-XAI.git
-cd Kidney-CT-Ensemble-XAI
+git clone https://github.com/arifex/CKD.git
+cd CKD
 pip install -r requirements.txt
 kaggle datasets download -d nazmul0087/ct-kidney-dataset-normal-cyst-tumor-and-stone -p data --unzip
-jupyter notebook Kidney_CT_Ensemble_XAI.ipynb
+jupyter notebook ct-kidney-dl.ipynb
 ```
 
 ## Repository structure
 
 ```
-├── Kidney_CT_Ensemble_XAI.ipynb   # training, evaluation and LIME
-├── figures/                       # figures from the paper
+├── ct-kidney-dl.ipynb             # training, evaluation and LIME
+├── copy_of_ct_kidney_dl.py        # script version of the notebook
+├── pipeline.png                   # figures from the paper
+├── sample_ct_slices.jpg
+├── ensemble_confusion_matrix.png
+├── ensemble_roc.png
+├── lime_explanations.jpg
 ├── requirements.txt
 └── README.md
 ```
