@@ -22,7 +22,7 @@ Four ImageNet-pretrained backbones process each slice in parallel:
 
 Their feature vectors are **concatenated** (feature-level fusion, not majority voting) and passed to a dense layer and a softmax classifier. **LIME** then shows which image regions drive each model's prediction.
 
-![Pipeline](figures/pipeline.png)
+![Pipeline]pipeline.png)
 
 ## Dataset
 
