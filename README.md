@@ -142,20 +142,6 @@ jupyter notebook ct-kidney-dl.ipynb
 }
 ```
 
-Please also cite the dataset:
-
-```bibtex
-@article{islam2022vision,
-  author  = {Islam, Md Nazmul and Hasan, Mehedi and Hossain, Md Kabir and Alam, Md Golam Rabiul and
-             Uddin, Md Zia and Soylu, Ahmet},
-  title   = {Vision transformer and explainable transfer learning models for auto detection of
-             kidney cyst, stone and tumor from {CT}-radiography},
-  journal = {Scientific Reports},
-  volume  = {12},
-  pages   = {11440},
-  year    = {2022}
-}
-```
 
 ## Author
 
